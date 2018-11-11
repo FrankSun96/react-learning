@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import TodoItem from './TodoItem'
 import './style.css'
 import axois from 'axios'
+import 'antd/dist/antd.css'
 
 class TodoList extends Component {
     constructor(props) {
