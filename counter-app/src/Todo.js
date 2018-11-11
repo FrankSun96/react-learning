@@ -1,8 +1,7 @@
 import React, { Component }from 'react'
 import store from './store'
-import { getInputChangeAction, getAddItemAction, getDeleteItemAction } from './store/actionCreators'
+import { getInputChangeAction, getAddItemAction, getDeleteItemAction, getTodoList } from './store/actionCreators'
 import TodoUI from './TodoUI';
-
 class Todo extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +21,12 @@ class Todo extends Component {
                     handleItemDelete = {this.handleItemDelete}
                 />
     }
+
+    componentDidMount() {
+        const action = getTodoList();
+        store.dispatch(action);
+    }
+
     handleInputChange(e) {
         const action = getInputChangeAction(e.target.value);
         store.dispatch(action)
